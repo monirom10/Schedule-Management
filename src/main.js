@@ -1,7 +1,7 @@
 import './assets/CSS/style-full.css';
 import { createApp } from 'vue'
 import './style.css'
-import DemoApp from './views/DemoApp.vue'
+import Schedule_Management from './views/Schedule_Management.vue'
 
 
-createApp(DemoApp).mount('#app')
+createApp(Schedule_Management).mount('#app')
