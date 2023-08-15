@@ -26,15 +26,32 @@
       <div class="hr">
         <hr>
       </div>
-      <div class="custom-header-title">Schedule Management</div>
+      <div class="custom-header-title">
+        Schedule Management
+      </div>
       <!-- @button-week -->
         <div v-for="weekNumber in 16" :key="weekNumber" class="select-week">
           <form action="">
             <select name="week">
-              <option :value="'week1' + weekNumber">Week {{ weekNumber }}</option>
-            </select>
-          </form>  
-        </div>
+              <option :value="week1">Week1</option>
+              <option :value="week2">Week2</option>
+              <option :value="week3">Week3</option>
+              <option :value="week4">Week4</option>
+              <option :value="week5">Week5</option>
+              <option :value="week6">Week6</option>
+              <option :value="week7">Week7</option>
+              <option :value="week8">Week8</option>
+              <option :value="week9">Week9</option>
+              <option :value="week10">Week10</option>
+              <option :value="week11">Week11</option>
+              <option :value="wee12">Week12</option>
+              <option :value="week13">Week13</option>
+              <option :value="week14">Week14</option>
+              <option :value="week15">Week15</option>
+              <option :value="week16">Week16</option>
+            </select> 
+          </form>
+        </div>  
       <div class="fullcalendar">
         <FullCalendar :options="calendarOptions">
 
@@ -460,4 +477,3 @@ export default defineComponent({
   
 })
 </script>
-

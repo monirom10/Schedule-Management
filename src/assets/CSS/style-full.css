@@ -321,8 +321,6 @@ li{
   font-size: 13px;
 }
 
-
-
 /*======================*/
 .lecturer-tab{
   width: 300px;
@@ -363,7 +361,7 @@ li{
   padding-bottom: 4px;
 }
 .lecturer-tab .lecturer-box .lecturer-info p{
-  font-size: 12px;
+  font-size: 11px;
   padding-top: 4px;
 }
 .lecturer-tab .lecturer-box .lecturer-info svg{
@@ -372,7 +370,7 @@ li{
   margin-top: 6px;
 }
 .lecturer-tab .lecturer-box .lecturer-info span{
-  font-size: 14px;
+  font-size: 12px;
   padding-bottom: 13px;
   padding-left: 2px;
 }
