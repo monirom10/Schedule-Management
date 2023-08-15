@@ -9,7 +9,6 @@
               {{ item.title }}
               <i class="fa fa-chevron-down"></i>
             </span>
-
             <ul class="list inner" :class="{ slow: activeIndex === index }" v-if="activeIndex === index">
               <div class="content">
                 <li v-for="(subItem, subIndex) in item.subItems" :key="subIndex" class="sub-item">
@@ -22,40 +21,31 @@
     </div>
     
     <!-- @tabe-calendar -->
-    <div class="container-main" :class="{ 'sidebar-closed': !isSidebarOpen }" :style="{ width: isSidebarOpen ? 'calc(100% - 250px)' : '100%' }">
+    <div class="container-main" 
+      :class="{ 'sidebar-closed': !isSidebarOpen, 'responsive': !isSidebarOpen, 'screen-960': isScreen960 }"
+      :style="{ width: isSidebarOpen ? 'calc(100% - 250px)' : '100%' }">
+          
       <div class="hr">
         <hr>
+      </div>
+       <div class="main-content" :style="mainContentStyles">
+        <!-- ...content... -->
       </div>
       <div class="custom-header-title">
         Schedule Management
       </div>
       <!-- @button-week -->
-        <div v-for="weekNumber in 16" :key="weekNumber" class="select-week">
+        <div class="select-week">
           <form action="">
-            <select name="week">
-              <option :value="week1">Week1</option>
-              <option :value="week2">Week2</option>
-              <option :value="week3">Week3</option>
-              <option :value="week4">Week4</option>
-              <option :value="week5">Week5</option>
-              <option :value="week6">Week6</option>
-              <option :value="week7">Week7</option>
-              <option :value="week8">Week8</option>
-              <option :value="week9">Week9</option>
-              <option :value="week10">Week10</option>
-              <option :value="week11">Week11</option>
-              <option :value="wee12">Week12</option>
-              <option :value="week13">Week13</option>
-              <option :value="week14">Week14</option>
-              <option :value="week15">Week15</option>
-              <option :value="week16">Week16</option>
+            <select name="week" v-model="selectedWeek">
+                <option class="option" :value="`week${weekNumber}`" v-for="weekNumber in 16" :key="weekNumber">
+                  Week {{ weekNumber }}
+                </option>
             </select> 
           </form>
         </div>  
       <div class="fullcalendar">
-        <FullCalendar :options="calendarOptions">
-
-        </FullCalendar> 
+        <FullCalendar :options="calendarOptions"></FullCalendar> 
       </div>
       <div class="other-element" :class="{ 'expanded': isSidebarOpen }">
         <!-- <h2>Schedule Management</h2> -->
@@ -67,12 +57,10 @@
       <div class="subject">
         <div class="search-subject">
           <form action="">
-            <input type="text" placeholder="Search Subject">
-            <button>
+            <input type="text" placeholder="Search Course...">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
               </svg>
-            </button>
           </form>
         </div>
         <div class="select-subject">
@@ -123,7 +111,7 @@
 
         <div class="search-subject">
           <form action="">
-            <input type="text" placeholder="Search Subject">
+            <input type="text" placeholder="Search Lecturer...">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
@@ -283,7 +271,6 @@
       </div>
 
     </div>
-
      <!-- Button to toggle the side-bar -->
     <button class="toggle-button" @click="toggleSidebar">
       <h1>X</h1>
@@ -298,7 +285,6 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from '../event-utils'
 // import { LoginIcon } from "@vue-hero-icons/outline"
-// import { IconifyIcon } from '@iconify/vue';
 
 export default defineComponent({
   name: 'CustomHeaderTitle',
@@ -307,6 +293,7 @@ export default defineComponent({
   },
   data() {
     return {
+      selectedWeek: 'week1', // Initially no week is selected
       currentTab: 'room', // Initial active tab
       sidebarItems: [
         {
@@ -411,8 +398,7 @@ export default defineComponent({
         views:{
           timeGridWeek: {
             dayHeaderContent: this.customDayHeaderContent
-          },
-          
+          }, 
         },
         // Update the headerToolbar configuration
         headerToolbar: {
@@ -473,7 +459,6 @@ export default defineComponent({
       }
     }
     
-  },
-  
+  }, 
 })
 </script>

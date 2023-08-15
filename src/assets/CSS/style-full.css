@@ -67,15 +67,17 @@ li{
 }
 .container-main{
   flex-grow:1;
-  transition: all 0.4s;
+  transition: all 0.3s;
   padding:2em;
   position: relative;
   transition: width 0.5s ease, margin-left 0.1s ease;
-
 }
 .hr{
+  width: 93.3%;
+  height: 8px;
+  border-top: 3px solid blue ;
   position: absolute;
-  top: 50%;
+  top: 60px;
 }
 .fc{
   max-width:1100px;
@@ -186,7 +188,7 @@ li{
 .drag-drop{
   width: 330px;
   background-color: #0000;
-  padding-top: 53px;
+  padding-top: 59px;
   padding-right: 15px;
 }
 /* @search-subjec */
@@ -210,30 +212,41 @@ li{
   /* background-color: yellowgreen; */
 }
 .search-subject input{
-  width: 80%;
+  width: 100%;
   height: 30px;
-  border-radius: 7px;
+  border-radius: 4px;
+  border: 1px solid #9BA4B5;
   padding-left: 15px;
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
 }
 .search-subject svg{
-  width: 40px;
+  width: 38px;
   height: 30px;
   position: absolute;
   top: 0px;
   cursor: pointer;
+  right: 1px;
+  color: #526D82;
+  transition: all 0.4s;
+}
+.search-subject svg:hover{
+  background-color: #8CABFF;
+  border-radius: 4px;
+  color: #0D1282;
+  transition: all 0.4s;
 }
 .search-subject input::placeholder{
   font-size: 17px;
-  padding-left: 20px;
+  padding-left: 2px;
+  color: #9DB2BF;
 }
 .select-subject{
   width: 100%;
-  height: 248px;
+  height: 255px;
   /* background-color: blue; */
   padding: 10px;
-  border: 2px solid #9BA4B5;
+  border: 1px solid #9BA4B5;
   overflow-y: auto; /* Add scroll for vertical overflow */
   max-height: 300px;
 }
@@ -244,6 +257,13 @@ li{
   border-radius: 6px;
   padding: 7px;
   margin-bottom: 10px;
+  transition: all 0.4s;
+}
+.select-subject .subject-box:hover{
+  cursor: pointer;
+  background-color: #E3F4F4;
+  transition: all 0.4s;
+  box-shadow: -2px 2px 6px -4px rgba(0,0,0,0.75);
 }
 .select-subject .subject-box h1{
   font-size: 17px;
@@ -273,11 +293,11 @@ li{
   box-shadow: -2px 1px 4px -2px rgba(0,0,0,0.33);
 }
 .room-lecturer-content{
-  border: 2px solid #9BA4B5;
+  border: 1px solid #9BA4B5;
 } 
 .room-lecturer .room-tab{
   width: 300px;
-  height: 200px;
+  height: 205px;
   padding: 7px;
   /* background-color: green; */
   overflow-y: auto; /* Add scroll for vertical overflow */
@@ -285,16 +305,25 @@ li{
   box-sizing: border-box;
 }
 .room-box{
-  width: 265px;
+  width: 269px;
   height: 90px;
   /* background-color: aqua; */
   display: flex;
   margin-bottom: 10px;
+  transition: all 0.4s;
+  border-radius: 5px;
 }
 .room-box .room-number{
   width: 80px;
   height: 90px;
   background-color: #4477CE;
+}
+.room-box:hover{
+  cursor: pointer;
+  background-color: #E3F4F4;
+  transition: all 0.4s;
+  box-shadow: -2px 2px 6px -4px rgba(0,0,0,0.75);
+  /* transform: scale(0.99); */
 }
 .room-box .room-number h1{
   padding-top: 30px;
@@ -308,10 +337,16 @@ li{
   width: 190px;
   height: 90px;
   background-color: white;
+  border-radius: 5px;
   padding: 10px;
   padding-bottom: 4px;
   overflow-x: hidden;
-  border-radius: 7px;
+  transition: all 0.4s;
+}
+.room-box .room-name:hover{
+  background-color: #E3F4F4;
+  transition: all 0.4s;
+  box-shadow: -2px 2px 6px -4px rgba(0,0,0,0.75);
 }
 .room-box .room-name h2{
   padding-bottom: 5px;
@@ -332,16 +367,23 @@ li{
 }
 
 .lecturer-tab .lecturer-box{
-  width: 268px;
+  width: 269.3px;
   height: 90px;
   display: flex;
   margin-bottom: 10px;
   background-color: #ffff;
   border-radius: 7px;
+  transition: all 0.4s;
+}
+.lecturer-tab .lecturer-box:hover{
+  background-color: #E3F4F4;
+  cursor: pointer;
+  transition: all 0.4s;
+  box-shadow: -2px 2px 6px -4px rgba(0,0,0,0.75);
 }
 
 .lecturer-tab .lecturer-box .lecturer-profile{
-  width: 70px;
+  width: 73px;
   height: 90px;
   object-fit: cover;
   /* background-color: green; */
@@ -407,7 +449,7 @@ li{
   font-size: 30px;
   font-weight: bold;
   position: absolute;
-  top: 30px;
+  top: 25px;
   padding-bottom: 100px;
 }
 .fullcalendar{
@@ -416,7 +458,7 @@ li{
 .select-week{
   position: absolute;
   right: 30px;
-  top: 30px;
+  top: 20px;
 }
 .select-week button{
   padding: 8px 30px 8px 22px;
@@ -426,3 +468,30 @@ li{
   font-weight: bold;
   border-radius: 6px;
 }
+
+.select-week select{
+  background-color: black;
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.select-week .option{
+  padding-bottom: 50px;
+}
+
+/*For increase or descrease table when sidebar close and turn on*/
+.fc-col-header, .fc-timegrid-body { width: 100% !important; }
+.fc-timegrid-body { table { width: 100% !important; } }
+
+.fc-daygrid-body,
+.fc-timegrid-body,
+.fc-timegrid-cols table,
+.fc-timegrid table,
+.fc-timegrid-event-harness,
+.fc-timegrid-col-events {
+	width: 100% !important;
+}
+
+
+
