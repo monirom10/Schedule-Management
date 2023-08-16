@@ -2,24 +2,29 @@
   <div class="container">
     <!-- @side-bar -->
     <div v-if="isSidebarOpen" class="container-sidebar" :class="{ 'closed': !isSidebarOpen }">  
-        <ul class="sidebar-content">
-          <li v-for="(item, index) in sidebarItems" :key="index">
-            <span class="content-title" @click="handleClick(index)" :class="{ active: activeIndex === index }">
-              <i :class="item.icon"></i>
-              {{ item.title }}
-              <i class="fa fa-chevron-down"></i>
-            </span>
-            <ul class="list inner" :class="{ slow: activeIndex === index }" v-if="activeIndex === index">
-              <div class="content">
-                <li v-for="(subItem, subIndex) in item.subItems" :key="subIndex" class="sub-item">
-                  {{ subItem }}
-                </li>
-              </div>
-            </ul>
-          </li>
-        </ul>
+      <div class="content-title-top">
+        <h1>Content</h1>
+        <div class="horizon">
+          <hr>
+        </div> 
+      </div> 
+      <ul class="sidebar-content">
+        <li v-for="(item, index) in sidebarItems" :key="index">
+          <span class="content-title" @click="handleClick(index)" :class="{ active: activeIndex === index }">
+            <i :class="item.icon"></i>
+            {{ item.title }}
+            <i class="fa fa-chevron-down"></i>
+          </span>
+          <ul class="list inner" :class="{ slow: activeIndex === index }" v-if="activeIndex === index">
+            <div class="sub-content">
+              <li v-for="(subItem, subIndex) in item.subItems" :key="subIndex" class="sub-item">
+                {{ subItem }}
+              </li>
+            </div>
+          </ul>
+        </li>
+      </ul>
     </div>
-    
     <!-- @tabe-calendar -->
     <div class="container-main" 
       :class="{ 'sidebar-closed': !isSidebarOpen, 'responsive': !isSidebarOpen, 'screen-960': isScreen960 }"
@@ -301,46 +306,66 @@ export default defineComponent({
           icon: 'fa fa-home',
           subItems: [
             '2022 - 2023', 
-            '2023 - 2024', 
-            '2025 - 2025'
+            '2021 - 2022', 
+            '2020 - 2021'
           ]
         },
         {
           title: 'Department',
           icon: 'fa fa-cog',
           subItems: [
-            'GIC',
             'GCA',
-            'GTR'
+            'GCI',
+            'GIC',
+            'GRU',
+            'TC',
+            'GEE',
+            'GIM',
+            'GGG',
+            'OAC',
+            'GS',
+            'IME',
+            'GTR',
+            'SA',
+            'SF',
+            'AMS',
+            'GAR',
+            'GTI'
           ]
         },
         {
-          title: 'Levels',
+          title: 'Degree',
           icon: 'fa fa-envelope',
           subItems: [
-            'Engeener',
             'Degree',
-            'Master'
+            'Engeener',
+            'Associate',
+            'Master',
+            'Doctoral',
+            'Master',
+            'Bachelor',
+            'International'
           ]
         },
         {
           title: 'Options',
           icon: 'fa fa-users',
           subItems: [
-            'Food Technology',
-            'Crush Technology',
-            'Sl-Ke Alone Technology'
+            '_FTS',
+            '_ChE',
+            'Food Technology & Nutrition',
+            '_TFS'
           ]
         },
         {
           title: 'Years',
           icon: 'fa fa-users',
           subItems: [
-            'Year one',
-            'Year two',
-            'Year three',
-            'Year Four',
-            'Year Five'
+            'First Year',
+            'Second Year',
+            'Third Year',
+            'Fourth Year',
+            'Fifth Year'
           ]
         },
         {
